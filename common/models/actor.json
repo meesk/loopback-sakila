@@ -1,0 +1,38 @@
+{
+  "name": "actor",
+  "plural": "actor",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "actor_id": {
+      "type": "number",
+      "id": true,
+      "required": true
+    },
+    "first_name": {
+      "type": "string",
+      "required": true
+    },
+    "last_name": {
+      "type": "string",
+      "required": true
+    },
+    "last_update": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "films": {
+      "type": "hasMany",
+      "model": "film",
+      "foreignKey": "actor_id",
+      "through": "film_actor"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,72 @@
+{
+  "name": "film",
+  "plural": "films",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "film_id": {
+      "type": "number",
+      "id": true,
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "release_year": {
+      "type": "date",
+      "required": true
+    },
+    "language_id": {
+      "type": "number"
+    },
+    "original_language_id": {
+      "type": "number"
+    },
+    "rental_duration": {
+      "type": "number"
+    },
+    "rental_rate": {
+      "type": "number"
+    },
+    "length": {
+      "type": "number",
+      "required": true
+    },
+    "replacement_cost": {
+      "type": "number"
+    },
+    "rating": {
+      "type": "string"
+    },
+    "special_features": {
+      "type": "string"
+    },
+    "last_update": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "actors": {
+      "type": "hasMany",
+      "model": "actor",
+      "foreignKey": "film_id",
+      "through": "film_actor"
+    },
+    "categories": {
+      "type": "hasMany",
+      "model": "category",
+      "foreignKey": "film_id",
+      "through": "film_category"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

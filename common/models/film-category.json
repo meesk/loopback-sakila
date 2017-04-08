@@ -1,0 +1,36 @@
+{
+  "name": "film_category",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "film_id": {
+      "type": "number",
+      "id": true,
+      "required": true
+    },
+    "category_id": {
+      "type": "number"
+    },
+    "last_update": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "film": {
+      "type": "belongsTo",
+      "model": "film",
+      "foreignKey": "film_id"
+    },
+    "category": {
+      "type": "belongsTo",
+      "model": "category",
+      "foreignKey": "category_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

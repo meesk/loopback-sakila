@@ -1,0 +1,37 @@
+{
+  "name": "film_actor",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "actor_id": {
+      "type": "number",
+      "id": true,
+      "required": true
+    },
+    "film_id": {
+      "type": "number",
+      "required": true
+    },
+    "last_update": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "film": {
+      "type": "belongsTo",
+      "model": "film",
+      "foreignKey": "film_id"
+    },
+    "actor": {
+      "type": "belongsTo",
+      "model": "actor",
+      "foreignKey": "actor_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
